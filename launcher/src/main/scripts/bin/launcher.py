@@ -213,6 +213,10 @@ def build_java_execution(options, daemon):
     command += jvm_properties + system_properties
     command += [main_class]
 
+    if 'args' in launcher_properties:
+        args = launcher_properties['args'].split(' ')
+        command += args
+
     if options.verbose:
         print command
         print
